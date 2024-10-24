@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+    </style>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+
+    <header>
+
+               
+
+        <div class="navbar">
+        <nav>
+            <ul id="menuitems">
+                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="products.html">Products</a> </li>
+                <li> <a href="about_us.html">About</a> </li>
+                <li> <a href="contact.html">Contact</a> </li>
+                <li> <a href="Accounts.html">Account</a> </li>
+            </ul>
+        </nav>
+        </div>
+    </div>
+
+<h1>TEN @ ALL</h1>                                                                  <!---COME BACK AND FIX--->
+
+
+</header>
+
+
+<header>
+    <h1>Checkout</h1>
+</header>
+
+<div class="checkout-container">
+    <h2>Product Details</h2>
+    <div class="product-info">
+        <!-- Display the product image here -->
+        <img id="product-image" src="" alt="Product Image">
+
+        <!-- Display the product name and price here -->
+        <div>
+            <p id="product-image"></p>
+            <p id="product-price"></p>
+        </div>
+    </div>
+    <a href="#" class="button">Proceed to Payment</a>
+</div>
+
+<footer>
+    <p>&copy; 2024 Your Shop. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Function to get URL parameters
+    function getParameterByName(name) {
+        const url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        const results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Get the product name, price, and image URL from the URL
+    const productName = getParameterByName('name');
+    const productPrice = getParameterByName('price');
+    const productImage = getParameterByName('image');
+
+    // Display the product details on the checkout page
+    document.getElementById('product-name').textContent = `Product: ${productName}`;
+    document.getElementById('product-price').textContent = `Price: $${productPrice}`;
+    document.getElementById('product-image').src = productImage;
+</script>
+
+</body>
+</html>
