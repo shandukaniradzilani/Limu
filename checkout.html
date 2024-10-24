@@ -9,6 +9,59 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
         }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .cart-totals {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .cart-totals span {
+            display: block;
+            margin: 5px 0;
+        }
+        .shipping-options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .shipping-options input {
+            margin-right: 10px;
+        }
+        .address {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #666;
+        }
+        .change-address {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .checkout-btn {
+            background-color: #e60023;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
     </style>
 
 <link rel="stylesheet" href="styles.css">
@@ -25,7 +78,6 @@
         <nav>
             <ul id="menuitems">
                 <li> <a href="index.html">Home</a> </li>
-                <li> <a href="products.html">Products</a> </li>
                 <li> <a href="about_us.html">About</a> </li>
                 <li> <a href="contact.html">Contact</a> </li>
                 <li> <a href="Accounts.html">Account</a> </li>
@@ -44,47 +96,43 @@
     <h1>Checkout</h1>
 </header>
 
-<div class="checkout-container">
-    <h2>Product Details</h2>
-    <div class="product-info">
-        <!-- Display the product image here -->
-        <img id="product-image" src="" alt="Product Image">
-
-        <!-- Display the product name and price here -->
-        <div>
-            <p id="product-image"></p>
-            <p id="product-price"></p>
+       
+<div class="container">
+    <h2>Cart Totals</h2>
+    
+    <div class="cart-totals">
+        <span>Subtotal: <strong id="subtotal">R0.00</strong></span>
+        <span>Shipping:</span>
+        <div class="shipping-options">
+            
+            
+            <label>
+                <input type="radio" name="shipping" value="100" checked>
+                <td>Normal Shipping – To Your Door (2–5 days): R100.00
+            </label>
+        
+            
+            <label>
+                <input type="radio" name="shipping" value="150">
+               Overnight Shipping – To Your Door (1–2 days): R150.00
+            </label>
+            
+            <label>
+                <input type="radio" name="shipping" value="89">
+                Pargo Collection Point (2–5 days): R89.00
+            </label>
+        
         </div>
+
+        <span>Shipping to: <strong></strong></span>
+        <a class="change-address">Change address</a>
+        <span>Total: <strong id="total">R0.00</strong></span>
     </div>
-    <a href="#" class="button">Proceed to Payment</a>
+
+    <button class="checkout-btn" onclick="proceedToCheckout()">PROCEED TO CHECKOUT</button>
 </div>
 
-<footer>
-    <p>&copy; 2024 Your Shop. All Rights Reserved.</p>
-</footer>
 
-<script>
-    // Function to get URL parameters
-    function getParameterByName(name) {
-        const url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&');
-        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-        const results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    // Get the product name, price, and image URL from the URL
-    const productName = getParameterByName('name');
-    const productPrice = getParameterByName('price');
-    const productImage = getParameterByName('image');
-
-    // Display the product details on the checkout page
-    document.getElementById('product-name').textContent = `Product: ${productName}`;
-    document.getElementById('product-price').textContent = `Price: $${productPrice}`;
-    document.getElementById('product-image').src = productImage;
-</script>
 
 </body>
 </html>
