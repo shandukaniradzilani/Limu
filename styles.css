@@ -39,7 +39,7 @@ header {
 .product img {
     width: 100%;
     height: auto;
-    border-bottom: 1px solid #ddd;
+    
     margin-bottom: 10px;
 }
 
@@ -101,3 +101,4 @@ margin-right: 20px;
 .contact h2{
     text-align: center;
 }
+
